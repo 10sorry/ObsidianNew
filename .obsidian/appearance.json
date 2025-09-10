@@ -1,0 +1,16 @@
+{
+  "cssTheme": "Kanagawa Paper",
+  "theme": "system",
+  "accentColor": "",
+  "showViewHeader": false,
+  "showRibbon": true,
+  "enabledCssSnippets": [
+    "1",
+    "macBlock",
+    "Table styling - Rounded corners",
+    "Image grid"
+  ],
+  "baseFontSizeAction": true,
+  "baseFontSize": 18,
+  "nativeMenus": false
+}

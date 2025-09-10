@@ -1,0 +1,270 @@
+{
+  "main": {
+    "id": "e3b5a1d069acee35",
+    "type": "split",
+    "children": [
+      {
+        "id": "55fccde8e7e40f92",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ec96e7474f716356",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "90_Misc/Отключение МКЦ.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Отключение МКЦ"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "b45bede0b692932a",
+    "type": "split",
+    "children": [
+      {
+        "id": "31bc4274aaa32aef",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "abc24ee10673045c",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "f468c460d4659a77",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "[\"aliases\"]",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "21173bf03e8b43fe",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 290.51103591918945
+  },
+  "right": {
+    "id": "3b048e7f2a36827f",
+    "type": "split",
+    "children": [
+      {
+        "id": "2d5a355585e84f09",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "332fa2a4d37b7d2c",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Документация.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Документация"
+            }
+          },
+          {
+            "id": "7794457d269d66f2",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "becfa3f56a6c6b57",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "b29d1f34eaec4f83",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          },
+          {
+            "id": "656f097203192147",
+            "type": "leaf",
+            "state": {
+              "type": "workbench-items",
+              "state": {},
+              "icon": "dice",
+              "title": "Pomo Workbench"
+            }
+          },
+          {
+            "id": "6d8ace04f3d6d5c4",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {},
+              "icon": "spreadsheet",
+              "title": "Advanced Tables"
+            }
+          },
+          {
+            "id": "859f4e22bddcb3c1",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "d156ff53b52c4982",
+            "type": "leaf",
+            "state": {
+              "type": "file-properties",
+              "state": {},
+              "icon": "lucide-info",
+              "title": "File properties"
+            }
+          }
+        ],
+        "currentTab": 6
+      }
+    ],
+    "direction": "horizontal",
+    "width": 290.5,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:Create new base": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "templater-obsidian:Templater": false,
+      "new-3d-graph:Open 3d graph": false,
+      "templify:Templify Market": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "obsidian-flexible-pomo:Start Pomodoro": false
+    }
+  },
+  "active": "ec96e7474f716356",
+  "lastOpenFiles": [
+    "Test.base",
+    "90_Misc/Отключение МКЦ.md",
+    "10_Notes/build&&run.md",
+    "20_Knowledge/Study/Наследование.md",
+    "90_Misc/Browsers.md",
+    "90_Misc/chat_export.md",
+    "20_Knowledge/Study/Паттерны.md",
+    "20_Knowledge/Study/CppTypes.md",
+    "20_Knowledge/CheatSheet/Git Cheat Sheet.md",
+    "20_Knowledge/CheatSheet/grub.md",
+    "20_Knowledge/Study/Linux разное.md",
+    "20_Knowledge/QML/CMakeLists.md",
+    "20_Knowledge/Bash/Команды/awk/awk_main.md",
+    "20_Knowledge/C++/Concurrency_threads_mutex_futures.md",
+    "Untitled.base",
+    "20_Knowledge/C++/C++_Roadmap.md",
+    "Untitled.md",
+    "ign_waifu_upscayl_4x_upscayl-standard-4x 3.png",
+    "Untitled 1.md",
+    "00_Inbox/Untitled.md",
+    "_templates/c++_template.md",
+    "90_Misc/Linux/Linux_Main_Folders.md",
+    "90_Misc/Linux",
+    "70_Attachments/Pasted image 20250724114016.png",
+    "70_Attachments/ign_waifu_upscayl_4x_upscayl-standard-4x.png",
+    "ign_waifu_upscayl_4x_upscayl-standard-4x 2.png",
+    "ign_waifu_upscayl_4x_upscayl-standard-4x 1.png",
+    "ign_waifu_upscayl_4x_upscayl-standard-4x.png",
+    "90_Misc/yt-dl.md",
+    "git_cheatsheet.html",
+    "90_Misc/Untitled.md",
+    "90_Misc/grub.md",
+    "90_Misc/Процесс сборки.md",
+    "00_Inbox/Untitled.canvas",
+    "10_Notes/Маленькие заметки/function parametres.md",
+    "10_Notes/key_bindings.md",
+    "20_Knowledge/QML/CMakeLists.md~",
+    "20_Knowledge/QML",
+    "20_Knowledge/Bash/Команды/echo",
+    "20_Knowledge/Bash/Команды",
+    "20_Knowledge/Bash",
+    "message",
+    "Pasted image 20250724114016.png",
+    "gruvbox-kvantum.svg",
+    "Untitled.canvas",
+    "Pasted image 20250509115643.png",
+    "Pasted image 20250509115747.png"
+  ]
+}

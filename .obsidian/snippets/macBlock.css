@@ -1,0 +1,98 @@
+/* === macOS Style Code Blocks === */
+
+/* ===========================
+   Preview (чтение)
+   =========================== */
+.markdown-preview-view pre {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  padding-top: 40px !important;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  font-size: 16px;
+  line-height: 1.4em;
+}
+
+.markdown-preview-view pre::before {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: 12px;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background: #ff5f56;
+  box-shadow: 24px 0 #ffbd2e, 48px 0 #27c93f;
+}
+
+/* ===========================
+   Live Preview + Source Mode
+   =========================== */
+
+/* Первая строка блока */
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-begin {
+  position: relative;
+  border-radius: 8px 8px 0 0;
+  padding-top: 40px !important;
+  border: 1px solid #2a2a2a;
+  border-bottom: none;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  font-size: 16px;
+  line-height: 1.4em;
+}
+
+/* Внутренние строки */
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock {
+  border-left: 1px solid #2a2a2a;
+  border-right: 1px solid #2a2a2a;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  font-size: 16px; line-height: 1.4em;
+}
+
+/* Последняя строка блока */
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-end {
+  border: 1px solid #2a2a2a;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  font-size: 16px;
+  line-height: 1.4em;
+}
+
+/* Кружочки только на первой строке */
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-begin::before {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: 12px;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background: #ff5f56;
+  box-shadow: 24px 0 #ffbd2e, 48px 0 #27c93f;
+}
+
+/* === Выравниваем ярлычок языка и кнопку копирования по высоте с macOS-кружками === */
+:root {
+  /* подгони под себя: + больше — ниже flair, - меньше — выше */
+  --cb-flair-shift: 5px;   /* у тебя padding-top:40 и кружки на top:16 — 10px обычно идеально */
+  --cb-flair-right: 12px;   /* симметрия с левым отступом кружков */
+}
+
+.markdown-preview-view .code-block-flair,
+.markdown-source-view.mod-cm6 .code-block-flair,
+.cm-editor .code-block-flair {
+  transform: translateY(var(--cb-flair-shift)) !important;
+  right: var(--cb-flair-right) !important;
+  left: auto !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  z-index: 5; /* чтобы не прятался за контентом */
+  height: 18px;
+  line-height: 18px;
+  font-size: 13px;
+  pointer-events: auto; /* не блокируем клики */
+}
+
+

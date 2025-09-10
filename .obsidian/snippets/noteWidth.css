@@ -1,0 +1,14 @@
+/* Делаем заметку на всю ширину */
+.markdown-preview-view,
+.markdown-source-view {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+/* Чтобы таблицы растягивались */
+.markdown-preview-view table {
+  width: auto !important; /* или 100%, если хочешь во всю ширину */
+  display: inline-block;
+  margin-right: 20px;
+  vertical-align: top;
+}

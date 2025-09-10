@@ -1,0 +1,38 @@
+{
+  "showAttachments": false,
+  "hideOrphans": false,
+  "showTags": true,
+  "searchQuery": "",
+  "groups": [
+    {
+      "query": "tag: cpp",
+      "color": "#f98b8b"
+    },
+    {
+      "query": "tag: linux",
+      "color": "#69bf6a"
+    }
+  ],
+  "useThemeColors": true,
+  "colorNode": "#2080F0",
+  "colorTag": "#9A49E8",
+  "colorAttachment": "#75B63A",
+  "colorLink": "#666666",
+  "colorHighlight": "#FFB800",
+  "backgroundColor": "#0E0E10",
+  "nodeSize": 5,
+  "tagNodeSize": 2,
+  "attachmentNodeSize": 1.2,
+  "linkThickness": 1,
+  "centerForce": 0.1,
+  "repelForce": 10,
+  "linkForce": 0.01,
+  "nodeShape": "Sphere",
+  "tagShape": "Cube",
+  "attachmentShape": "Cube",
+  "zoomOnClick": true,
+  "showNeighboringNodes": true,
+  "rotateSpeed": 1,
+  "panSpeed": 1,
+  "zoomSpeed": 1
+}

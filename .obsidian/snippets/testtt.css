@@ -1,0 +1,27 @@
+/* Увеличиваем шрифт в левом файловом дереве без жирности */
+.nav-folder-children,
+.nav-file,
+.nav-folder,
+.nav-folder-title,
+.nav-file-title {
+    font-size: 14px !important; /* поставь размер по кайфу */
+    font-weight: normal !important; /* отменяем жирность */
+    line-height: 1.2 !important; /* чтобы текст не слипался */
+}
+
+/* Увеличиваем иконки рядом с файлами и папками, чтобы не выглядело криво */
+.nav-folder > .nav-folder-title .nav-folder-collapse-indicator,
+.nav-file .nav-file-title::before {
+    transform: scale(1.2);
+}
+
+/* Отступ для вложенных папок */
+.nav-folder-children {
+    padding-left: 14px !important;
+}
+
+/* Немного увеличиваем высоту строки для удобства */
+.nav-file {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+}

@@ -1,0 +1,14 @@
+{
+  "obsidian-prism-theme@@color-schemes-dt": "pt-color-scheme-raven-dt",
+  "obsidian-prism-theme@@dark-accent-color-preset": "pt-accent-color-purple-dt",
+  "obsidian-prism-theme@@dark-mark-highlight-text-color-preset": "pt-highlight-text-color-dt",
+  "obsidian-prism-theme@@highlight-text-accent-dt": "pt-highlight-text-accent-dt",
+  "things-style@@mobile-black-background": false,
+  "things-style@@active-line": true,
+  "sanctum@@callout-border-width": 100,
+  "retroma-obsidian-theme@@theme-variant": "theme-variant-2",
+  "retroma-obsidian-theme@@window-border-radius": "12px",
+  "retroma-obsidian-theme@@button-border-radius": "8px",
+  "retroma-obsidian-theme@@interactive-accent@@light": "#1C1A1A",
+  "retroma-obsidian-theme@@interactive-accent@@dark": "#FFFFFF"
+}

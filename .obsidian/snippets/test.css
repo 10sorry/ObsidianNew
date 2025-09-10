@@ -1,0 +1,7 @@
+body.theme-dark .markdown-preview-view {
+    background-color: #181a20 !important;
+    color: #d0d0d0 !important;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+    line-height: 1.6 !important;
+    padding: 1rem 2rem !important;
+}

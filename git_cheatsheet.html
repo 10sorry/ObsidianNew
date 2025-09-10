@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12 команд Git - Шпаргалка</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1e1e2e 0%, #2d3142 50%, #1a1a2e 100%);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            gap: 20px;
+        }
+        
+        .logo {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(45deg);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+        }
+        
+        .logo i {
+            color: white;
+            font-size: 24px;
+            transform: rotate(-45deg);
+        }
+        
+        .title {
+            font-size: 48px;
+            font-weight: 700;
+            color: #ffffff;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .title .highlight {
+            color: #ff6b35;
+            font-weight: 800;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+        
+        .card {
+            background: linear-gradient(145deg, #2a2d3e, #3c4053);
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent-color);
+            border-radius: 16px 16px 0 0;
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        
+        .command-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent-color);
+            color: white;
+            font-size: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .command-name {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 16px;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .description {
+            color: #b8c5d1;
+            margin-bottom: 20px;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+        
+        .terminal {
+            background: #1a1a2e;
+            border-radius: 8px;
+            padding: 16px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+        
+        .terminal-header {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+        
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .red { background: #ff5f57; }
+        .yellow { background: #ffbd2e; }
+        .green { background: #28ca42; }
+        
+        .command-line {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+        
+        .prompt {
+            color: #7c7c7c;
+            margin-right: 8px;
+        }
+        
+        .command {
+            color: #ff6b35;
+            font-weight: 500;
+        }
+        
+        .argument {
+            color: #4ecdc4;
+        }
+        
+        .string {
+            color: #95e1d3;
+        }
+        
+        .flag {
+            color: #fce38a;
+        }
+        
+        /* Цветовые схемы для разных команд */
+        .init { --accent-color: #ff6b35; }
+        .add { --accent-color: #4ecdc4; }
+        .commit { --accent-color: #ff6b9d; }
+        .push { --accent-color: #ff4757; }
+        .pull { --accent-color: #5dade2; }
+        .remote { --accent-color: #ffa726; }
+        .branch { --accent-color: #26de81; }
+        .fetch { --accent-color: #7b68ee; }
+        .checkout { --accent-color: #ff9ff3; }
+        .merge { --accent-color: #fd79a8; }
+        .status { --accent-color: #6c5ce7; }
+        .reset { --accent-color: #74b9ff; }
+        
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .title {
+                font-size: 32px;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+        }
+        
+        .glow {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from {
+                box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+            }
+            to {
+                box-shadow: 0 8px 35px rgba(255, 107, 53, 0.5);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo glow">
+                <i class="fab fa-git-alt"></i>
+            </div>
+            <h1 class="title">12 КОМАНД <span class="highlight">GIT</span></h1>
+        </div>
+        
+        <div class="grid">
+            <!-- git init -->
+            <div class="card init">
+                <div class="card-header">
+                    <div class="command-icon">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <div class="command-name">git init</div>
+                </div>
+                <div class="description">
+                    Инициализирует новый Git-репозиторий в текущей директории.
+                </div>
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-dot red"></div>
+                        <div class="terminal-dot yellow"></div>
+                        <div class="terminal-dot green"></div>
+                    </div>
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">mkdir</span>
+                        <span class="argument">railsapp</span>
+                    </div>
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">cd</span>
+                        <span class="argument">railsapp</span>
+                    </div>
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">git init</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- git add -->
+            <div class="card add">
+                <div class="card-header">
+                    <div class="command-icon">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="command-name">git add</div>
+                </div>
+                <div class="description">
+                    Добавляет изменения в текущей директории и вложенных папках в индекс (staging area).
+                </div>
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-dot red"></div>
+                        <div class="terminal-dot yellow"></div>
+                        <div class="terminal-dot green"></div>
+                    </div>
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">echo</span>
+                        <span class="string">"# RAILS APP"</span>
+                        <span class="argument">> README.md</span>
+                    </div>
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">echo</span>
+                        <span class="string">"Demo"</span>
+                        <span class="argument">>> README.md</span>
+                    </div>
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">git add</span>
+                        <span class="argument">README.md</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- git commit -->
+            <div class="card commit">
+                <div class="card-header">
+                    <div class="command-icon">
+                        <i class="fas fa-save"></i>
+                    </div>
+                    <div class="command-name">git commit</div>
+                </div>
+                <div class="description">
+                    Фиксирует изменения из индекса с сообщением коммита.
+                </div>
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-dot red"></div>
+                        <div class="terminal-dot yellow"></div>
+                        <div class="terminal-dot green"></div>
+                    </div>
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">git add</span>
+                        <span class="argument">app.css</span>
+                    </div>
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">git commit</span>
+                        <span class="flag">-m</span>
+                        <span class="string">"Initial commit"</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- git push -->
+            <div class="card push">
+                <div class="card-header">
+                    <div class="command-icon">
+                        <i class="fas fa-upload"></i>
+                    </div>
+                    <div class="command-name">git push</div>
+                </div>
+                <div class="description">
+                    Отправляет локальные изменения в удалённый репозиторий.
+                </div>
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-dot red"></div>
+                        <div class="terminal-dot yellow"></div>
+                        <div class="terminal-dot green"></div>
+                    </div>
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">git add</span>
+                        <span class="argument">.</span>
+                    </div>
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">git commit</span>
+                        <span class="flag">-m</span>
+                        <span class="string">"Update files"</span>
+                    </div>
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">git push</span>
+                        <span class="argument">origin main</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- git pull -->
+            <div class="card pull">
+                <div class="card-header">
+                    <div class="command-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <div class="command-name">git pull</div>
+                </div>
+                <div class="description">
+                    Получает изменения из удалённого репозитория и сливает их в текущую ветку.
+                </div>
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-dot red"></div>
+                        <div class="terminal-dot yellow"></div>
+                        <div class="terminal-dot green"></div>
+                    </div>
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">git status</span>
+                    </div>
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">git pull</span>
+                        <span class="argument">origin main</span>
+                    </div>
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">git log</span>
+                        <span class="flag">--oneline</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- git remote -->
+            <div class="card remote">
+                <div class="card-header">
+                    <div class="command-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="command-name">git remote</div>
+                </div>
+                <div class="description">
+                    Добавляет удалённый репозиторий, отображает список удалённых, переименовывает их.
+                </div>
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-dot red"></div>
+                        <div class="terminal-dot yellow"></div>
+                        <div class="terminal-dot green"></div>
+                    </div>
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">git remote add</span>
+                        <span class="argument">origin</span>
+                        <span class="string">&lt;url&gt;</span>
+                    </div>
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">git remote</span>
+                        <span class="flag">-v</span>
+                    </div>
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">git remote rename</span>
+                        <span class="argument">origin upstream</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- git branch -->
+            <div class="card branch">
+                <div class="card-header">
+                    <div class="command-icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <div class="command-name">git branch</div>
+                </div>
+                <div class="description">
+                    Показывает список веток, создаёт новую ветку и проверяет её наличие.
+                </div>
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-dot red"></div>
+                        <div class="terminal-dot yellow"></div>
+                        <div class="terminal-dot green"></div>
+                    </div>
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">git branch</span>
+                    </div>
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">git branch</span>
+                        <span class="argument">feature-login</span>
+                    </div>
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">git branch</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- git fetch -->
+            <div class="card fetch">
+                <div class="card-header">
+                    <div class="command-icon">
+                        <i class="fas fa-sync"></i>
+                    </div>
+                    <div class="command-name">git fetch</div>
+                </div>
+                <div class="description">
+                    Получает последние данные из удалённого репозитория, но не вносит их в текущую рабочую директорию.
+                </div>
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-dot red"></div>
+                        <div class="terminal-dot yellow"></div>
+                        <div class="terminal-dot green"></div>
+                    </div>
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">git fetch</span>
+                        <span class="argument">origin</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- git checkout -->
+            <div class="card checkout">
+                <div class="card-header">
+                    <div class="command-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <div class="command-name">git checkout</div>
+                </div>
+                <div class="description">
+                    Переключается на указанную ветку.
+                </div>
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-dot red"></div>
+                        <div class="terminal-dot yellow"></div>
+                        <div class="terminal-dot green"></div>
+                    </div>
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">git branch</span>
+                    </div>
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">git checkout</span>
+                        <span class="argument">feature-login</span>
+                    </div>
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">git branch</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- git merge -->
+            <div class="card merge">
+                <div class="card-header">
+                    <div class="command-icon">
+                        <i class="fas fa-object-group"></i>
+                    </div>
+                    <div class="command-name">git merge</div>
+                </div>
+                <div class="description">
+                    Объединяет указанную ветку с текущей (в данном случае — с main).
+                </div>
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-dot red"></div>
+                        <div class="terminal-dot yellow"></div>
+                        <div class="terminal-dot green"></div>
+                    </div>
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">git checkout</span>
+                        <span class="argument">main</span>
+                    </div>
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">git merge</span>
+                        <span class="argument">feature-login</span>
+                    </div>
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">git log</span>
+                        <span class="flag">--oneline</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- git status -->
+            <div class="card status">
+                <div class="card-header">
+                    <div class="command-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div class="command-name">git status</div>
+                </div>
+                <div class="description">
+                    Показывает текущее состояние репозитория, включая незафиксированные изменения.
+                </div>
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-dot red"></div>
+                        <div class="terminal-dot yellow"></div>
+                        <div class="terminal-dot green"></div>
+                    </div>
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">git status</span>
+                    </div>
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">echo</span>
+                        <span class="string">"Data Added"</span>
+                        <span class="argument">>> hello.txt</span>
+                    </div>
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">git status</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- git reset -->
+            <div class="card reset">
+                <div class="card-header">
+                    <div class="command-icon">
+                        <i class="fas fa-undo"></i>
+                    </div>
+                    <div class="command-name">git reset</div>
+                </div>
+                <div class="description">
+                    Откатывает текущую ветку к указанному коммиту.
+                </div>
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-dot red"></div>
+                        <div class="terminal-dot yellow"></div>
+                        <div class="terminal-dot green"></div>
+                    </div>
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">git log</span>
+                        <span class="flag">--oneline</span>
+                    </div>
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">git reset</span>
+                        <span class="flag">--hard</span>
+                        <span class="string">&lt;commit-hash&gt;</span>
+                    </div>
+                    <div class="command-line">
+                        <span class="prompt">$</span>
+                        <span class="command">git status</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

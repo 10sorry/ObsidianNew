@@ -1,0 +1,11 @@
+/* === Таблицы в несколько колонок === */
+.markdown-preview-view table {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 20px; /* отступы между таблицами */
+}
+
+.markdown-preview-view table td,
+.markdown-preview-view table th {
+  white-space: nowrap; /* не даём тексту переноситься */
+}

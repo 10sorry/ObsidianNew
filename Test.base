@@ -1,0 +1,15 @@
+formulas:
+  Image: image(image)
+  Math: image()
+views:
+  - type: cards
+    name: View
+    filters:
+      and:
+        - "!file.folder.isEmpty()"
+    cardSize: 170
+    image: formula.Image
+    imageFit: ""
+    imageAspectRatio: 0.75
+  - type: table
+    name: View 2
